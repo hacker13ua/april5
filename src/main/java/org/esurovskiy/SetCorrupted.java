@@ -18,7 +18,6 @@ public class SetCorrupted {
 
         final Car redCar2 = new Car("RED", 200);
 
-
         System.out.println(cars.size());
         System.out.println(cars.contains(redCar));
         System.out.println(cars.contains(greenCar));
