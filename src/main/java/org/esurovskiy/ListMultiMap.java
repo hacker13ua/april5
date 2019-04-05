@@ -20,6 +20,20 @@ public class ListMultiMap<K, V> {
 
     public List<V> get(K key) {
         List<V> list = map.get(key);
-        return new ArrayList<>(list);
+        if(list != null) {
+            return new ArrayList<>(list);
+        }
+        return Collections.emptyList();
+    }
+
+
+    public Integer doSmth(int i){
+        System.out.println("do1");
+        return 1;
+    }
+
+    public String doSmth(long i){
+        System.out.println("do1");
+        return "1";
     }
 }

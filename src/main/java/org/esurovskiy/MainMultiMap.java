@@ -15,5 +15,6 @@ public class MainMultiMap {
         List<String> list2 = multiMap.get(2);
         System.out.println(list2);
         System.out.println((multiMap.get(2) == multiMap.get(2)));
+        System.out.println(multiMap.get(3));
     }
 }
