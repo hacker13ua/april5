@@ -1,20 +1,18 @@
 package org.esurovskiy;
 
 public class ConcurrentExampleMain {
-    private volatile static int x = 0;
-
     public static void main(String[] args) throws InterruptedException {
+        final XContainer xContainer = new XContainer();
         for (int j = 0; j < 10; j++) {
             Thread thread = new Thread(() -> {
-                System.out.println("Thread started");
-                for (int i = 0; i < 1000000; i++) {
-                    x++;
+                for (int i = 0; i < 1_000_000; i++) {
+                    xContainer.increment();
                 }
             });
             thread.start();
         }
         System.out.println("Start sleep");
-        Thread.sleep(100);
-        System.out.println(x);
+        Thread.sleep(1000);
+        System.out.println(xContainer.getX());
     }
 }
