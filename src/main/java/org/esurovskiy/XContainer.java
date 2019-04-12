@@ -1,16 +1,22 @@
 package org.esurovskiy;
 
-public class XContainer {
-    private final Object object = new Object();
-    private volatile int x = 0;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
-    void increment() {
-        synchronized (object) {
-            x++;
-        }
+public class XContainer {
+    private final AtomicBoolean atomicBoolean = new AtomicBoolean();
+//    private volatile int x = 0;
+
+    AtomicInteger integer = new AtomicInteger();
+
+    boolean b = false;
+    synchronized void increment() {
+//        x++;
+        atomicBoolean.compareAndSet(false, true);
+        integer.addAndGet(1);
     }
 
     public int getX() {
-        return x;
+        return integer.get();
     }
 }
